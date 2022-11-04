@@ -9,6 +9,7 @@ class SignupController extends Controller
     {
         helper(['form']);
         $data = [];
+        echo view('templates/header');
         echo view('signup', $data);
     }
   
@@ -33,6 +34,7 @@ class SignupController extends Controller
             return redirect()->to('/signin');
         }else{
             $data['validation'] = $this->validator;
+            echo view('templates/header');
             echo view('signup', $data);
         }
           

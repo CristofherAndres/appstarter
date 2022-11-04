@@ -1,40 +1,75 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Codeigniter Auth User Registration Example</title>
-</head>
-<body>
-    <div class="container mt-5">
-        <div class="row justify-content-md-center">
-            <div class="col-5">
-                <h2>Register User</h2>
-                <?php if(isset($validation)):?>
+<body class="hold-transition register-page">
+
+
+    <div class="card mt-5">
+        <div class="card-body register-card-body">
+            <h2 class="login-box-msg">
+                Registrar un nuevo usuario
+            </h2>
+            <?php if (isset($validation)) : ?>
                 <div class="alert alert-warning">
-                   <?= $validation->listErrors() ?>
+                    <?= $validation->listErrors() ?>
                 </div>
-                <?php endif;?>
-                <form action="<?php echo base_url(); ?>/SignupController/store" method="post">
-                    <div class="form-group mb-3">
-                        <input type="text" name="name" placeholder="Name" value="<?= set_value('name') ?>" class="form-control" >
+            <?php endif; ?>
+            <form action="<?php echo base_url(); ?>/SignupController/store" method="post">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="name" placeholder="Nombre">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <input type="email" name="email" placeholder="Email" value="<?= set_value('email') ?>" class="form-control" >
+                </div>
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" name="email" placeholder="Email">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <input type="password" name="password" placeholder="Password" class="form-control" >
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <input type="password" name="confirmpassword" placeholder="Confirm Password" class="form-control" >
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" name="confirmpassword" placeholder="Repetir password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
                     </div>
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-dark">Signup</button>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                            <label for="agreeTerms">
+                                Acepto los <a href="#">términos</a>
+                            </label>
+                        </div>
                     </div>
-                </form>
-            </div>
+                    <!-- /.col -->
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+
+
+            <a href="<?php echo base_url(); ?>/signin" class="text-center">Ya tengo una cuenta</a>
+
+            <!-- Usuario con cuenta -->
+            <p class="mb-0">
+
         </div>
-    </div>
+        <!-- /.form-box -->
+    </div><!-- /.card -->
 </body>
+
 </html>

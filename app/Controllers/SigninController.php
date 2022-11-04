@@ -8,6 +8,7 @@ class SigninController extends Controller
     public function index()
     {
         helper(['form']);
+        echo view('templates/header');
         echo view('signin');
     } 
   
